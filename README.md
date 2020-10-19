@@ -2,7 +2,9 @@
 
 ## Description
 
-A Full Stack web application built with express, node and indexDB. With this application you can keep track of your finances by adding expenses and income.Deployed on Heroku
+A Full Stack web application built with express, node and indexDB. With this application you can keep track of your finances by adding expenses and income.
+
+Deployed on Heroku: https://secure-stream-92495.herokuapp.com/
 
 ## Table Of Contents
 
@@ -20,6 +22,7 @@ npm install
 ## Usage
 
 The key feature of this app is all transactions can be done when offline. The app updates the database when back online.
+https://drive.google.com/file/d/1fPXuUp65WdEGXCzmZZj-auRarEe0QZdd/view
 
 ## Built-With
 
