@@ -8,3 +8,7 @@ A Full Stack web application built with express, node and indexDB. With this app
 * [Author](#Author)
 * [License](#License)
 * [Questions](#Questions)
+## Installation
+npm install 
+## Usage
+The key feature of this app is all transactions can be done when offline. The app updates the database when back online.
