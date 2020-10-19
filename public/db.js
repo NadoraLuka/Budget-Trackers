@@ -2,12 +2,12 @@ let db;
 
 const request = indexedDB.open("budgettrack", 1);
 
-request.onupgradeneeded = function(event) {
+request.onupgradeneeded = function (event) {
   const db = event.target.result;
   db.createObjectStore("pending", { autoIncrement: true });
 };
 
-request.onsuccess = function(event) {
+request.onsuccess = function (event) {
   db = event.target.result;
 
   if (navigator.onLine) {
@@ -16,7 +16,7 @@ request.onsuccess = function(event) {
 };
 
 //if there's an error, show what it is
-request.onerror = function(event) {
+request.onerror = function (event) {
   console.log("Woops! " + event.target.errorCode);
 };
 
@@ -32,21 +32,20 @@ function checkDB() {
   const store = transaction.objectStore("pending");
   const getAll = store.getAll();
 
-  getAll.onsuccess = function() {
-    console.log(getAll.result)
+  getAll.onsuccess = function () {
+    console.log(getAll.result);
     if (getAll.result.length > 0) {
-        console.log(getAll.result)
+      console.log(getAll.result);
       fetch("/api/transaction/bulk", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
           Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
-      .then(response => response.json())
+        .then((response) => response.json())
         .then(() => {
-       
           const transaction = db.transaction(["pending"], "readwrite");
           const store = transaction.objectStore("pending");
           store.clear();
